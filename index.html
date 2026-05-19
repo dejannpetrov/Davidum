@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer Abs Gym App</title>
+<title>Summer Abs Gym + Diet App</title>
 
 <style>
 body{
@@ -71,14 +71,57 @@ p{color:#aaa;}
     font-size:13px;
 }
 
+/* BUTTON */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:12px;
+    background:#2ecc71;
+    font-weight:bold;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.popup-box{
+    background:#1c1c1c;
+    padding:20px;
+    border-radius:16px;
+    width:90%;
+    max-width:400px;
+}
+
+.popup-box h3{
+    color:#2ecc71;
+}
+
+ul{
+    line-height:1.7;
+    padding-left:20px;
+}
+
+.close{
+    margin-top:10px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🔥 Summer Abs Program</h1>
-<p>8 Week Gym Transformation</p>
+<h1>🔥 Summer Abs Transformation</h1>
+<p>Gym + Diet Plan (175cm / 67kg)</p>
 </header>
 
 <div class="container">
@@ -91,7 +134,7 @@ p{color:#aaa;}
 <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
 <div class="text">
 <div class="name">Bench Press</div>
-<div class="reps">4 sets × 8 reps</div>
+<div class="reps">4 × 8 reps</div>
 </div>
 </div>
 
@@ -103,14 +146,7 @@ p{color:#aaa;}
 </div>
 </div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
-<div class="text">
-<div class="name">Cable Crunch</div>
-<div class="reps">4 × 15 reps</div>
-</div>
-</div>
-
+<button onclick="openMeal()">🍽 View Diet Plan</button>
 </div>
 
 <!-- TUESDAY -->
@@ -133,14 +169,7 @@ p{color:#aaa;}
 </div>
 </div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<div class="text">
-<div class="name">Bicep Curl</div>
-<div class="reps">3 × 12 reps</div>
-</div>
-</div>
-
+<button onclick="openMeal()">🍽 View Diet Plan</button>
 </div>
 
 <!-- WEDNESDAY -->
@@ -163,27 +192,11 @@ p{color:#aaa;}
 </div>
 </div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1554284126-8f0b5a8c1a4c">
-<div class="text">
-<div class="name">Romanian Deadlift</div>
-<div class="reps">4 × 10 reps</div>
-</div>
-</div>
-
 </div>
 
 <!-- THURSDAY -->
 <div class="day">
 <h2>Thursday — Push</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
-<div class="text">
-<div class="name">Incline Bench Press</div>
-<div class="reps">4 × 8 reps</div>
-</div>
-</div>
 
 <div class="exercise">
 <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
@@ -205,36 +218,20 @@ p{color:#aaa;}
 
 <!-- FRIDAY -->
 <div class="day">
-<h2>Friday — FULL PULL (HEAVY)</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1598971639058-9995e6a7a7c3">
-<div class="text">
-<div class="name">Deadlift</div>
-<div class="reps">4 × 5 reps</div>
-</div>
-</div>
+<h2>Friday — Full Pull (Heavy)</h2>
 
 <div class="exercise">
 <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
 <div class="text">
 <div class="name">Pull Ups</div>
-<div class="reps">4 sets × max reps</div>
-</div>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a">
-<div class="text">
-<div class="name">Barbell Row</div>
-<div class="reps">4 × 8 reps</div>
+<div class="reps">4 sets max</div>
 </div>
 </div>
 
 <div class="exercise">
 <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
 <div class="text">
-<div class="name">EZ Bar Curl</div>
+<div class="name">Bicep Curl</div>
 <div class="reps">4 × 10 reps</div>
 </div>
 </div>
@@ -248,7 +245,7 @@ p{color:#aaa;}
 <div class="exercise">
 <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
 <div class="text">
-<div class="name">Front Squat</div>
+<div class="name">Front Squats</div>
 <div class="reps">4 × 8 reps</div>
 </div>
 </div>
@@ -261,17 +258,43 @@ p{color:#aaa;}
 </div>
 </div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
-<div class="text">
-<div class="name">HIIT Sprints</div>
-<div class="reps">10 rounds</div>
-</div>
 </div>
 
 </div>
 
+<!-- POPUP DIET -->
+<div class="popup" id="popup">
+<div class="popup-box">
+
+<h3>🍽 Daily Diet Plan</h3>
+
+<ul>
+<li>4 Eggs (breakfast)</li>
+<li>80g Oats</li>
+<li>200g Chicken Breast</li>
+<li>200g Rice</li>
+<li>Greek Yogurt (200g)</li>
+<li>1 Banana</li>
+<li>Protein Shake (30g)</li>
+<li>200g Fish or Lean Beef</li>
+<li>Vegetables daily</li>
+<li>3L Water</li>
+</ul>
+
+<button class="close" onclick="closeMeal()">Close</button>
+
 </div>
+</div>
+
+<script>
+function openMeal(){
+document.getElementById("popup").style.display="flex";
+}
+
+function closeMeal(){
+document.getElementById("popup").style.display="none";
+}
+</script>
 
 </body>
 </html>
