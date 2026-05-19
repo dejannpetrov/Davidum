@@ -1,83 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Summer Abs Program</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Abs Gym App</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-}
-
 body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     background:#0f0f0f;
     color:white;
+}
+
+header{
+    text-align:center;
     padding:20px;
 }
+
+h1{margin:0;font-size:28px;}
+p{color:#aaa;margin:5px 0;}
 
 .container{
     max-width:500px;
     margin:auto;
+    padding:10px;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:10px;
-    font-size:32px;
+.day{
+    background:#1c1c1c;
+    margin:15px 0;
+    border-radius:18px;
+    padding:15px;
 }
 
-.subtitle{
-    text-align:center;
-    color:#aaa;
-    margin-bottom:25px;
-}
-
-.day-card{
-    background:#1a1a1a;
-    border-radius:20px;
-    padding:18px;
-    margin-bottom:18px;
-    box-shadow:0 0 10px rgba(0,0,0,0.3);
-}
-
-.day-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
-}
-
-.day-title{
-    font-size:22px;
-    font-weight:700;
-}
-
-.badge{
-    background:#2ecc71;
-    color:black;
-    padding:5px 12px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:700;
+.day h2{
+    margin:0 0 10px 0;
+    font-size:20px;
+    color:#2ecc71;
 }
 
 .exercise{
     display:flex;
     align-items:center;
-    background:#262626;
-    padding:12px;
+    background:#2a2a2a;
+    margin:10px 0;
+    padding:10px;
     border-radius:14px;
-    margin-bottom:10px;
-    transition:0.3s;
-}
-
-.exercise.done{
-    opacity:0.4;
-    transform:scale(0.98);
 }
 
 .exercise img{
@@ -85,347 +54,185 @@ h1{
     height:70px;
     border-radius:12px;
     object-fit:cover;
-    margin-right:12px;
+    margin-right:10px;
 }
 
-.exercise-info{
-    flex:1;
-}
-
-.exercise-name{
-    font-weight:700;
-    margin-bottom:5px;
-}
-
-.exercise-reps{
-    color:#aaa;
-    font-size:14px;
-}
-
-.check-btn{
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    border:none;
-    background:#444;
-    color:white;
+.name{
     font-weight:bold;
-    cursor:pointer;
 }
 
-.exercise.done .check-btn{
+.reps{
+    font-size:13px;
+    color:#aaa;
+}
+
+button{
+    margin-left:auto;
     background:#2ecc71;
-    color:black;
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-.meal-btn{
-    width:100%;
+.meal{
+    background:#111;
+    padding:10px;
     margin-top:10px;
-    background:#2ecc71;
-    color:black;
-    border:none;
-    padding:14px;
-    border-radius:14px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.popup{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.8);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
-
-.popup-content{
-    background:#1a1a1a;
-    width:90%;
-    max-width:400px;
-    border-radius:20px;
-    padding:25px;
-}
-
-.popup h2{
-    margin-bottom:15px;
-}
-
-.popup ul{
-    padding-left:20px;
-    line-height:1.8;
-}
-
-.close-btn{
-    margin-top:20px;
-    width:100%;
-    padding:12px;
-    border:none;
     border-radius:12px;
-    background:#2ecc71;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.progress{
-    background:#222;
-    height:12px;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:25px;
-}
-
-.progress-bar{
-    height:100%;
-    width:0%;
-    background:#2ecc71;
-    transition:0.4s;
-}
-
-.reset-btn{
-    width:100%;
-    padding:14px;
-    background:#ff4444;
-    border:none;
-    border-radius:14px;
-    color:white;
-    font-weight:700;
-    margin-top:15px;
-    cursor:pointer;
-}
-
-@media(max-width:500px){
-    .exercise img{
-        width:60px;
-        height:60px;
-    }
-
-    h1{
-        font-size:28px;
-    }
+    color:#aaa;
+    font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<h1>🔥 Summer Abs Program</h1>
+<p>8 Week Gym Transformation</p>
+</header>
+
 <div class="container">
 
-<h1>🔥 Summer Abs</h1>
-<p class="subtitle">8 Week Gym Program</p>
-
-<div class="progress">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-
 <!-- MONDAY -->
-<div class="day-card">
+<div class="day">
+<h2>Monday — Push + Abs</h2>
 
-<div class="day-header">
-<div class="day-title">Monday — Push + Abs</div>
-<div class="badge">Gym</div>
+<div class="exercise">
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<div>
+<div class="name">Bench Press</div>
+<div class="reps">4 x 8</div>
+</div>
+<button>✓</button>
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Bench Press</div>
-<div class="exercise-reps">4 x 8</div>
+<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
+<div>
+<div class="name">Incline Dumbbell Press</div>
+<div class="reps">4 x 10</div>
 </div>
-<button class="check-btn">✓</button>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Incline Dumbbell Press</div>
-<div class="exercise-reps">4 x 10</div>
-</div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Cable Crunches</div>
-<div class="exercise-reps">4 x 15</div>
+<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
+<div>
+<div class="name">Cable Crunch</div>
+<div class="reps">4 x 15</div>
 </div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
 
-<button class="meal-btn" onclick="openPopup()">
-🍽 View Meal Plan
-</button>
-
+<div class="meal">Meal: Chicken + Rice + Vegetables</div>
 </div>
 
 <!-- TUESDAY -->
-<div class="day-card">
+<div class="day">
+<h2>Tuesday — Pull</h2>
 
-<div class="day-header">
-<div class="day-title">Tuesday — Pull</div>
-<div class="badge">Gym</div>
+<div class="exercise">
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
+<div>
+<div class="name">Lat Pulldown</div>
+<div class="reps">4 x 10</div>
+</div>
+<button>✓</button>
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Lat Pulldown</div>
-<div class="exercise-reps">4 x 10</div>
+<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a">
+<div>
+<div class="name">Barbell Row</div>
+<div class="reps">4 x 8</div>
 </div>
-<button class="check-btn">✓</button>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Barbell Rows</div>
-<div class="exercise-reps">4 x 8</div>
-</div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Hammer Curls</div>
-<div class="exercise-reps">3 x 12</div>
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<div>
+<div class="name">Bicep Curl</div>
+<div class="reps">3 x 12</div>
 </div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
-
 </div>
 
 <!-- WEDNESDAY -->
-<div class="day-card">
+<div class="day">
+<h2>Wednesday — Legs</h2>
 
-<div class="day-header">
-<div class="day-title">Wednesday — Legs</div>
-<div class="badge">Gym</div>
+<div class="exercise">
+<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
+<div>
+<div class="name">Squats</div>
+<div class="reps">4 x 8</div>
+</div>
+<button>✓</button>
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1434596922112-19c563067271?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Squats</div>
-<div class="exercise-reps">4 x 8</div>
+<img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e">
+<div>
+<div class="name">Leg Press</div>
+<div class="reps">4 x 12</div>
 </div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
+</div>
+
+<!-- THURSDAY -->
+<div class="day">
+<h2>Thursday — Push</h2>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Romanian Deadlift</div>
-<div class="exercise-reps">4 x 10</div>
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<div>
+<div class="name">Incline Bench</div>
+<div class="reps">4 x 8</div>
 </div>
-<button class="check-btn">✓</button>
+<button>✓</button>
 </div>
+</div>
+
+<!-- FRIDAY -->
+<div class="day">
+<h2>Friday — Pull + Abs</h2>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=500" />
-<div class="exercise-info">
-<div class="exercise-name">Leg Press</div>
-<div class="exercise-reps">4 x 12</div>
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
+<div>
+<div class="name">Lat Pulldown</div>
+<div class="reps">4 x 10</div>
 </div>
-<button class="check-btn">✓</button>
-</div>
-
-</div>
-
-<button class="reset-btn" onclick="resetChecks()">
-Reset Week
-</button>
-
-</div>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-
-<div class="popup-content">
-
-<h2>🍽 Daily Meal Plan</h2>
-
-<ul>
-<li>4 Eggs</li>
-<li>80g Oats</li>
-<li>200g Chicken Breast</li>
-<li>200g Rice</li>
-<li>Greek Yogurt</li>
-<li>Banana + Protein Shake</li>
-<li>180g Lean Beef/Fish</li>
-<li>3L Water Daily</li>
-</ul>
-
-<button class="close-btn" onclick="closePopup()">
-Close
-</button>
-
+<button>✓</button>
 </div>
 </div>
 
-<script>
+<!-- SATURDAY -->
+<div class="day">
+<h2>Saturday — Legs + HIIT</h2>
 
-const buttons = document.querySelectorAll(".check-btn");
+<div class="exercise">
+<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
+<div>
+<div class="name">Front Squat</div>
+<div class="reps">4 x 8</div>
+</div>
+<button>✓</button>
+</div>
+</div>
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
+<!-- SUNDAY -->
+<div class="day">
+<h2>Sunday — Rest</h2>
+<div class="meal">Walk + Recovery + Meal Prep</div>
+</div>
 
-        const exercise = button.parentElement;
-        exercise.classList.toggle("done");
-
-        updateProgress();
-    });
-});
-
-function updateProgress(){
-
-    const all = document.querySelectorAll(".exercise").length;
-    const done = document.querySelectorAll(".exercise.done").length;
-
-    const percent = (done / all) * 100;
-
-    document.getElementById("progressBar").style.width = percent + "%";
-
-    // if all done reset automatically
-    if(done === all){
-
-        setTimeout(() => {
-
-            document.querySelectorAll(".exercise").forEach(ex => {
-                ex.classList.remove("done");
-            });
-
-            updateProgress();
-
-            alert("🔥 Week Completed — Starting Fresh!");
-
-        }, 1000);
-    }
-}
-
-function openPopup(){
-    document.getElementById("popup").style.display = "flex";
-}
-
-function closePopup(){
-    document.getElementById("popup").style.display = "none";
-}
-
-function resetChecks(){
-
-    document.querySelectorAll(".exercise").forEach(ex => {
-        ex.classList.remove("done");
-    });
-
-    updateProgress();
-}
-
-</script>
+</div>
 
 </body>
 </html>
