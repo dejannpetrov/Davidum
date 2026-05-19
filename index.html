@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer Abs Gym App</title>
+<title>Summer Abs Gym Tracker</title>
 
 <style>
 body{
     margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
     background:#0f0f0f;
     color:white;
 }
@@ -22,7 +22,7 @@ h1{margin:0;font-size:28px;}
 p{color:#aaa;margin:5px 0;}
 
 .container{
-    max-width:500px;
+    max-width:520px;
     margin:auto;
     padding:10px;
 }
@@ -36,203 +36,239 @@ p{color:#aaa;margin:5px 0;}
 
 .day h2{
     margin:0 0 10px 0;
-    font-size:20px;
     color:#2ecc71;
+    font-size:18px;
+}
+
+.progress-bar{
+    height:8px;
+    background:#2ecc71;
+    width:0%;
+    border-radius:10px;
+    transition:0.3s;
 }
 
 .exercise{
     display:flex;
     align-items:center;
     background:#2a2a2a;
-    margin:10px 0;
     padding:10px;
-    border-radius:14px;
+    margin:8px 0;
+    border-radius:12px;
 }
 
-.exercise img{
-    width:70px;
-    height:70px;
-    border-radius:12px;
-    object-fit:cover;
+.exercise input{
+    width:20px;
+    height:20px;
     margin-right:10px;
 }
 
-.name{
-    font-weight:bold;
-}
-
-.reps{
-    font-size:13px;
-    color:#aaa;
+.exercise.done{
+    opacity:0.4;
+    text-decoration:line-through;
 }
 
 button{
-    margin-left:auto;
-    background:#2ecc71;
+    margin-top:10px;
+    width:100%;
+    padding:12px;
     border:none;
-    padding:10px 14px;
-    border-radius:10px;
+    border-radius:12px;
     font-weight:bold;
+    background:#2ecc71;
 }
 
-.meal{
-    background:#111;
-    padding:10px;
-    margin-top:10px;
-    border-radius:12px;
-    color:#aaa;
-    font-size:13px;
+.popup{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    align-items:center;
+    justify-content:center;
 }
+
+.popup-box{
+    background:#1c1c1c;
+    padding:20px;
+    border-radius:16px;
+    width:90%;
+    max-width:400px;
+}
+
+.stepbox{
+    background:#222;
+    padding:10px;
+    border-radius:12px;
+    margin:10px 0;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🔥 Summer Abs Program</h1>
+<h1>🔥 Summer Abs Tracker</h1>
 <p>8 Week Gym Transformation</p>
 </header>
 
 <div class="container">
 
+<!-- STEP TRACKER -->
+<div class="day">
+<h2>Daily Steps</h2>
+<div class="stepbox">
+<input type="number" id="stepsInput" placeholder="Enter steps">
+<button onclick="saveSteps()">Save Steps</button>
+<p id="stepsShow"></p>
+</div>
+</div>
+
 <!-- MONDAY -->
 <div class="day">
 <h2>Monday — Push + Abs</h2>
+<div class="progress-bar" id="p1"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
-<div>
-<div class="name">Bench Press</div>
-<div class="reps">4 x 8</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'m1')">Bench Press 4x8</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'m2')">Incline DB Press 4x10</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'m3')">Shoulder Press 4x10</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'m4')">Cable Crunch 4x15</div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
-<div>
-<div class="name">Incline Dumbbell Press</div>
-<div class="reps">4 x 10</div>
-</div>
-<button>✓</button>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
-<div>
-<div class="name">Cable Crunch</div>
-<div class="reps">4 x 15</div>
-</div>
-<button>✓</button>
-</div>
-
-<div class="meal">Meal: Chicken + Rice + Vegetables</div>
+<button onclick="openMeal()">Meal Plan</button>
 </div>
 
 <!-- TUESDAY -->
 <div class="day">
 <h2>Tuesday — Pull</h2>
+<div class="progress-bar" id="p2"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
-<div>
-<div class="name">Lat Pulldown</div>
-<div class="reps">4 x 10</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'t1')">Lat Pulldown</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'t2')">Barbell Row</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'t3')">Cable Row</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'t4')">Bicep Curl</div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a">
-<div>
-<div class="name">Barbell Row</div>
-<div class="reps">4 x 8</div>
-</div>
-<button>✓</button>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<div>
-<div class="name">Bicep Curl</div>
-<div class="reps">3 x 12</div>
-</div>
-<button>✓</button>
-</div>
+<button onclick="openMeal()">Meal Plan</button>
 </div>
 
 <!-- WEDNESDAY -->
 <div class="day">
 <h2>Wednesday — Legs</h2>
+<div class="progress-bar" id="p3"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
-<div>
-<div class="name">Squats</div>
-<div class="reps">4 x 8</div>
-</div>
-<button>✓</button>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e">
-<div>
-<div class="name">Leg Press</div>
-<div class="reps">4 x 12</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'w1')">Squats</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'w2')">Leg Press</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'w3')">RDL</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'w4')">Calf Raises</div>
 </div>
 
 <!-- THURSDAY -->
 <div class="day">
 <h2>Thursday — Push</h2>
+<div class="progress-bar" id="p4"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
-<div>
-<div class="name">Incline Bench</div>
-<div class="reps">4 x 8</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'th1')">Incline Bench</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'th2')">Chest Fly</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'th3')">Lateral Raises</div>
 </div>
 
 <!-- FRIDAY -->
 <div class="day">
-<h2>Friday — Pull + Abs</h2>
+<h2>Friday — FULL PULL (HEAVY)</h2>
+<div class="progress-bar" id="p5"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
-<div>
-<div class="name">Lat Pulldown</div>
-<div class="reps">4 x 10</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f1')">Deadlift</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f2')">Pullups</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f3')">Lat Pulldown</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f4')">Barbell Row</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f5')">T-Bar Row</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'f6')">EZ Bar Curl</div>
+
+<button onclick="openMeal()">Meal Plan</button>
 </div>
 
 <!-- SATURDAY -->
 <div class="day">
 <h2>Saturday — Legs + HIIT</h2>
+<div class="progress-bar" id="p6"></div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
-<div>
-<div class="name">Front Squat</div>
-<div class="reps">4 x 8</div>
-</div>
-<button>✓</button>
-</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'s1')">Front Squat</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'s2')">Lunges</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'s3')">Leg Curl</div>
+<div class="exercise"><input type="checkbox" onchange="save(this,'s4')">Sprints HIIT</div>
 </div>
 
 <!-- SUNDAY -->
 <div class="day">
 <h2>Sunday — Rest</h2>
-<div class="meal">Walk + Recovery + Meal Prep</div>
+<p style="color:#aaa">Recovery + Walking + Stretch</p>
 </div>
 
+<button onclick="resetAll()">Reset Week</button>
+
 </div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h3>Meal Plan</h3>
+<p>
+Chicken 200g<br>
+Rice 200g<br>
+Veggies<br>
+Eggs 4<br>
+Oats 80g<br>
+Protein shake
+</p>
+<button onclick="closeMeal()">Close</button>
+</div>
+</div>
+
+<script>
+
+function save(el,id){
+    localStorage.setItem(id, el.checked);
+    el.parentElement.classList.toggle("done", el.checked);
+    updateProgress();
+}
+
+function load(){
+    document.querySelectorAll("input[type=checkbox]").forEach(el=>{
+        let id = el.getAttribute("onchange").match(/'(.*?)'/)[1];
+        el.checked = localStorage.getItem(id) === "true";
+        el.parentElement.classList.toggle("done", el.checked);
+    });
+    updateProgress();
+}
+
+function updateProgress(){
+    for(let i=1;i<=6;i++){
+        let all = document.querySelectorAll(`#p${i === 5 ? 5 : i}`).length;
+    }
+}
+
+function saveSteps(){
+    let val = document.getElementById("stepsInput").value;
+    localStorage.setItem("steps",val);
+    document.getElementById("stepsShow").innerText = "Steps: " + val;
+}
+
+function openMeal(){
+    document.getElementById("popup").style.display="flex";
+}
+
+function closeMeal(){
+    document.getElementById("popup").style.display="none";
+}
+
+function resetAll(){
+    localStorage.clear();
+    location.reload();
+}
+
+load();
+
+</script>
 
 </body>
 </html>
