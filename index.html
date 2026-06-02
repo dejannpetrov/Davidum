@@ -3,84 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer Transformation</title>
+<title>Fitness App - Summer Plan</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
 body{
+    margin:0;
+    font-family:Arial;
     background:#0f0f0f;
     color:white;
 }
 
 header{
-    padding:40px;
+    padding:20px;
     text-align:center;
-    background:#171717;
-}
-
-header h1{
-    font-size:3rem;
+    background:#1c1c1c;
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
+    max-width:1000px;
     margin:auto;
-    padding:20px;
+    padding:15px;
+}
+
+.tabs{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.tab{
+    padding:10px 15px;
+    background:#222;
+    border-radius:10px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.tab.active{
+    background:white;
+    color:black;
 }
 
 .card{
     background:#1b1b1b;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:20px;
-}
-
-.progress-bar{
-    width:100%;
-    height:25px;
-    background:#333;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress{
-    width:0%;
-    height:100%;
-    background:#fff;
-    transition:.3s;
-}
-
-.day{
-    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 
 .exercise{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px;
     background:#222;
+    padding:10px;
+    margin:8px 0;
     border-radius:10px;
-    margin-top:10px;
 }
 
-.exercise img{
-    width:120px;
-    border-radius:10px;
+.small{
+    opacity:0.7;
+    font-size:13px;
 }
 
 button{
-    padding:10px 20px;
+    padding:8px 12px;
     border:none;
-    border-radius:10px;
+    border-radius:8px;
     cursor:pointer;
+}
+
+input{
+    padding:8px;
+    border-radius:8px;
+    border:none;
+    width:120px;
 }
 </style>
 </head>
@@ -88,108 +83,181 @@ button{
 <body>
 
 <header>
-<h1>SUMMER TRANSFORMATION</h1>
-<p>173cm | 66.5kg | Goal: 70kg Lean</p>
+<h2>SUMMER TRANSFORMATION APP</h2>
+<p>173cm • 66.5kg • Goal: Lean Muscle</p>
 </header>
 
 <div class="container">
 
 <div class="card">
-<h2>Current Progress</h2>
-
-<p>Week Progress</p>
-
-<div class="progress-bar">
-<div class="progress" id="progress"></div>
+<h3>Progress Tracker</h3>
+<input id="weight" placeholder="kg">
+<button onclick="saveWeight()">Save</button>
+<p id="weightOut"></p>
 </div>
 
-<br>
+<div class="tabs" id="tabs"></div>
 
-<input type="number" id="weight" placeholder="Current Weight">
-
-<button onclick="saveWeight()">Save Weight</button>
-
-<p id="weightResult"></p>
-
-</div>
+<div id="content"></div>
 
 <div class="card">
-
-<h2>Monday - Chest & Triceps</h2>
-
+<h3>Budget Diet (Daily ~2800 kcal)</h3>
 <div class="exercise">
-<div>
-<h3>Bench Press</h3>
-<p>4 x 6-8</p>
-</div>
-
-<img src="benchpress.gif">
+<b>Breakfast</b><br>
+100g oats + 300ml milk + 1 banana + 20g peanut butter
 </div>
 
 <div class="exercise">
-<div>
-<h3>Incline Dumbbell Press</h3>
-<p>4 x 8-10</p>
-</div>
-
-<img src="incline.gif">
+<b>Snack</b><br>
+2 eggs + 2 slices bread
 </div>
 
 <div class="exercise">
-<div>
-<h3>Dips</h3>
-<p>3 Sets</p>
+<b>Lunch</b><br>
+150g rice + 200g chicken + vegetables
 </div>
 
-<img src="dips.gif">
+<div class="exercise">
+<b>Pre Workout</b><br>
+1 banana + yogurt
 </div>
 
+<div class="exercise">
+<b>Post Workout</b><br>
+200g potatoes + 150g chicken
 </div>
 
-<div class="card">
-
-<h2>Daily Meal Plan</h2>
-
-<ul>
-<li>100g Oats</li>
-<li>300ml Milk</li>
-<li>30g Peanut Butter</li>
-<li>1 Banana</li>
-<li>200g Chicken</li>
-<li>150g Rice</li>
-<li>300g Potato</li>
-<li>250g Greek Yogurt</li>
-</ul>
-
+<div class="exercise">
+<b>Dinner</b><br>
+3 eggs + bread OR tuna + rice
 </div>
-
-<div class="card">
-
-<h2>Weekly Check List</h2>
-
-<label><input type="checkbox"> Monday Workout</label><br>
-<label><input type="checkbox"> Tuesday Workout</label><br>
-<label><input type="checkbox"> Wednesday Workout</label><br>
-<label><input type="checkbox"> Thursday Workout</label><br>
-<label><input type="checkbox"> Friday Workout</label><br>
-<label><input type="checkbox"> Saturday Workout</label><br>
-
 </div>
 
 </div>
 
 <script>
 
-let progress=0;
+const plan = {
+Monday:{
+title:"Chest + Triceps",
+workout:[
+"Bench Press – 4x6-8",
+"Incline Dumbbell Press – 4x8-10",
+"Chest Fly – 3x12",
+"Dips – 3 sets",
+"Triceps Pushdown – 3x10"
+]
+},
+Tuesday:{
+title:"Back + Biceps",
+workout:[
+"Pull Ups – 4 sets",
+"Lat Pulldown – 4x10",
+"Barbell Row – 4x8",
+"Seated Row – 3x12",
+"Dumbbell Curl – 3x10"
+]
+},
+Wednesday:{
+title:"Legs",
+workout:[
+"Squat – 4x8",
+"Leg Press – 4x12",
+"Romanian Deadlift – 4x10",
+"Leg Curl – 3x12",
+"Calf Raises – 5x15"
+]
+},
+Thursday:{
+title:"Shoulders",
+workout:[
+"Overhead Press – 4x8",
+"Lateral Raises – 4x15",
+"Rear Delt Fly – 4x12",
+"Shrugs – 4x12"
+]
+},
+Friday:{
+title:"Upper Body",
+workout:[
+"Bench Press – 3x8",
+"Pull Ups – 3 sets",
+"Dumbbell Press – 3x10",
+"Row – 3x10",
+"Arms Superset – 3 rounds"
+]
+},
+Saturday:{
+title:"Abs + Cardio",
+workout:[
+"Crunches – 4x15",
+"Leg Raises – 4x15",
+"Plank – 3x1min",
+"15–20 min cardio"
+]
+},
+Sunday:{
+title:"Rest",
+workout:[
+"Rest day",
+"Light walk",
+"Stretching"
+]
+}
+};
+
+let current="Monday";
+
+function renderTabs(){
+let tabs=document.getElementById("tabs");
+tabs.innerHTML="";
+
+for(let day in plan){
+let div=document.createElement("div");
+div.className="tab"+(day===current?" active":"");
+div.innerText=day;
+div.onclick=()=>{current=day;render();};
+tabs.appendChild(div);
+}
+}
+
+function render(){
+renderTabs();
+
+let c=document.getElementById("content");
+c.innerHTML="";
+
+let data=plan[current];
+
+let html=`
+<div class="card">
+<h2>${current} - ${data.title}</h2>
+`;
+
+data.workout.forEach(ex=>{
+html+=`<div class="exercise">${ex}</div>`;
+});
+
+html+=`</div>`;
+
+c.innerHTML=html;
+}
 
 function saveWeight(){
-
-const weight=document.getElementById('weight').value;
-
-document.getElementById('weightResult').innerHTML=
-"Current Weight: "+weight+" kg";
-
+let w=document.getElementById("weight").value;
+localStorage.setItem("weight",w);
+document.getElementById("weightOut").innerText="Current: "+w+" kg";
 }
+
+function load(){
+let w=localStorage.getItem("weight");
+if(w){
+document.getElementById("weightOut").innerText="Current: "+w+" kg";
+}
+}
+
+render();
+load();
 
 </script>
 
