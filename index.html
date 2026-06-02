@@ -77,6 +77,29 @@ input{
     border:none;
     width:120px;
 }
+ .schedule-box{
+    margin-top:15px;
+}
+
+.schedule-btn{
+    width:100%;
+    background:#222;
+    color:white;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    text-align:left;
+}
+
+.schedule-content{
+    display:none;
+    background:#181818;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:10px;
+}   
 </style>
 </head>
 
@@ -284,6 +307,26 @@ if(w){
 document.getElementById("weightOut").innerText="Current: "+w+" kg";
 }
 }
+function toggleSchedule(id){
+
+    const schedules =
+        document.querySelectorAll('.schedule-content');
+
+    schedules.forEach(schedule => {
+        if(schedule.id !== id){
+            schedule.style.display = "none";
+        }
+    });
+
+    const current =
+        document.getElementById(id);
+
+    if(current.style.display === "block"){
+        current.style.display = "none";
+    }else{
+        current.style.display = "block";
+    }
+}    
 
 render();
 load();
