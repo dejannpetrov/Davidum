@@ -3,297 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summer Abs Gym + Diet App</title>
+<title>Summer Transformation</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
     background:#0f0f0f;
     color:white;
 }
 
 header{
+    padding:40px;
     text-align:center;
+    background:#171717;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
     padding:20px;
 }
 
-h1{margin:0;font-size:28px;}
-p{color:#aaa;}
+.card{
+    background:#1b1b1b;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
 
-.container{
-    max-width:520px;
-    margin:auto;
-    padding:10px;
+.progress-bar{
+    width:100%;
+    height:25px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:#fff;
+    transition:.3s;
 }
 
 .day{
-    background:#1c1c1c;
-    margin:15px 0;
-    border-radius:18px;
-    padding:15px;
-}
-
-.day h2{
-    margin:0 0 12px 0;
-    color:#2ecc71;
-    font-size:18px;
+    margin-top:15px;
 }
 
 .exercise{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    background:#2a2a2a;
     padding:10px;
-    margin:8px 0;
-    border-radius:12px;
+    background:#222;
+    border-radius:10px;
+    margin-top:10px;
 }
 
 .exercise img{
-    width:65px;
-    height:65px;
+    width:120px;
     border-radius:10px;
-    object-fit:cover;
-    margin-right:10px;
 }
 
-.text{
-    flex:1;
-}
-
-.name{
-    font-weight:bold;
-    font-size:14px;
-}
-
-.reps{
-    color:#aaa;
-    font-size:13px;
-}
-
-/* BUTTON */
 button{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
+    padding:10px 20px;
     border:none;
-    border-radius:12px;
-    background:#2ecc71;
-    font-weight:bold;
+    border-radius:10px;
+    cursor:pointer;
 }
-
-/* POPUP */
-.popup{
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.85);
-    display:none;
-    align-items:center;
-    justify-content:center;
-}
-
-.popup-box{
-    background:#1c1c1c;
-    padding:20px;
-    border-radius:16px;
-    width:90%;
-    max-width:400px;
-}
-
-.popup-box h3{
-    color:#2ecc71;
-}
-
-ul{
-    line-height:1.7;
-    padding-left:20px;
-}
-
-.close{
-    margin-top:10px;
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🔥 Summer Abs Transformation</h1>
-<p>Gym + Diet Plan (175cm / 67kg)</p>
+<h1>SUMMER TRANSFORMATION</h1>
+<p>173cm | 66.5kg | Goal: 70kg Lean</p>
 </header>
 
 <div class="container">
 
-<!-- MONDAY -->
-<div class="day">
-<h2>Monday — Push + Abs</h2>
+<div class="card">
+<h2>Current Progress</h2>
+
+<p>Week Progress</p>
+
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+
+<br>
+
+<input type="number" id="weight" placeholder="Current Weight">
+
+<button onclick="saveWeight()">Save Weight</button>
+
+<p id="weightResult"></p>
+
+</div>
+
+<div class="card">
+
+<h2>Monday - Chest & Triceps</h2>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
-<div class="text">
-<div class="name">Bench Press</div>
-<div class="reps">4 × 8 reps</div>
-</div>
+<div>
+<h3>Bench Press</h3>
+<p>4 x 6-8</p>
 </div>
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
-<div class="text">
-<div class="name">Incline Dumbbell Press</div>
-<div class="reps">4 × 10 reps</div>
-</div>
-</div>
-
-<button onclick="openMeal()">🍽 View Diet Plan</button>
-</div>
-
-<!-- TUESDAY -->
-<div class="day">
-<h2>Tuesday — Pull</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
-<div class="text">
-<div class="name">Lat Pulldown</div>
-<div class="reps">4 × 10 reps</div>
-</div>
+<img src="benchpress.gif">
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1518611012118-696072aa579a">
-<div class="text">
-<div class="name">Barbell Row</div>
-<div class="reps">4 × 8 reps</div>
-</div>
+<div>
+<h3>Incline Dumbbell Press</h3>
+<p>4 x 8-10</p>
 </div>
 
-<button onclick="openMeal()">🍽 View Diet Plan</button>
-</div>
-
-<!-- WEDNESDAY -->
-<div class="day">
-<h2>Wednesday — Legs</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
-<div class="text">
-<div class="name">Squats</div>
-<div class="reps">4 × 8 reps</div>
-</div>
+<img src="incline.gif">
 </div>
 
 <div class="exercise">
-<img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e">
-<div class="text">
-<div class="name">Leg Press</div>
-<div class="reps">4 × 12 reps</div>
+<div>
+<h3>Dips</h3>
+<p>3 Sets</p>
 </div>
+
+<img src="dips.gif">
 </div>
 
 </div>
 
-<!-- THURSDAY -->
-<div class="day">
-<h2>Thursday — Push</h2>
+<div class="card">
 
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
-<div class="text">
-<div class="name">Shoulder Press</div>
-<div class="reps">4 × 10 reps</div>
-</div>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1598971639058-9995e6a7a7c3">
-<div class="text">
-<div class="name">Lateral Raises</div>
-<div class="reps">4 × 15 reps</div>
-</div>
-</div>
-
-</div>
-
-<!-- FRIDAY -->
-<div class="day">
-<h2>Friday — Full Pull (Heavy)</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
-<div class="text">
-<div class="name">Pull Ups</div>
-<div class="reps">4 sets max</div>
-</div>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<div class="text">
-<div class="name">Bicep Curl</div>
-<div class="reps">4 × 10 reps</div>
-</div>
-</div>
-
-</div>
-
-<!-- SATURDAY -->
-<div class="day">
-<h2>Saturday — Legs + HIIT</h2>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712">
-<div class="text">
-<div class="name">Front Squats</div>
-<div class="reps">4 × 8 reps</div>
-</div>
-</div>
-
-<div class="exercise">
-<img src="https://images.unsplash.com/photo-1554284126-8f0b5a8c1a4c">
-<div class="text">
-<div class="name">Lunges</div>
-<div class="reps">3 × 20 steps</div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-<!-- POPUP DIET -->
-<div class="popup" id="popup">
-<div class="popup-box">
-
-<h3>🍽 Daily Diet Plan</h3>
+<h2>Daily Meal Plan</h2>
 
 <ul>
-<li>4 Eggs (breakfast)</li>
-<li>80g Oats</li>
-<li>200g Chicken Breast</li>
-<li>200g Rice</li>
-<li>Greek Yogurt (200g)</li>
+<li>100g Oats</li>
+<li>300ml Milk</li>
+<li>30g Peanut Butter</li>
 <li>1 Banana</li>
-<li>Protein Shake (30g)</li>
-<li>200g Fish or Lean Beef</li>
-<li>Vegetables daily</li>
-<li>3L Water</li>
+<li>200g Chicken</li>
+<li>150g Rice</li>
+<li>300g Potato</li>
+<li>250g Greek Yogurt</li>
 </ul>
 
-<button class="close" onclick="closeMeal()">Close</button>
+</div>
+
+<div class="card">
+
+<h2>Weekly Check List</h2>
+
+<label><input type="checkbox"> Monday Workout</label><br>
+<label><input type="checkbox"> Tuesday Workout</label><br>
+<label><input type="checkbox"> Wednesday Workout</label><br>
+<label><input type="checkbox"> Thursday Workout</label><br>
+<label><input type="checkbox"> Friday Workout</label><br>
+<label><input type="checkbox"> Saturday Workout</label><br>
 
 </div>
+
 </div>
 
 <script>
-function openMeal(){
-document.getElementById("popup").style.display="flex";
+
+let progress=0;
+
+function saveWeight(){
+
+const weight=document.getElementById('weight').value;
+
+document.getElementById('weightResult').innerHTML=
+"Current Weight: "+weight+" kg";
+
 }
 
-function closeMeal(){
-document.getElementById("popup").style.display="none";
-}
 </script>
 
 </body>
