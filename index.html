@@ -94,11 +94,13 @@ input{
 <input id="weight" placeholder="kg">
 <button onclick="saveWeight()">Save</button>
 <p id="weightOut"></p>
-    <div class="work-schedules">
+    <div class="schedule-box">
 
-    <div class="schedule-card">
-        <h2>Смена 09:00 - 17:00</h2>
+    <button class="schedule-btn" onclick="toggleSchedule('s1')">
+        📅 Смена 09:00 - 17:00
+    </button>
 
+    <div id="s1" class="schedule-content">
         <p>🍳 Breakfast — 09:00</p>
         <p>🥜 Snack — 12:00</p>
         <p>🍽️ Lunch — 15:00</p>
@@ -107,9 +109,11 @@ input{
         <p>🌙 Dinner — 21:30</p>
     </div>
 
-    <div class="schedule-card">
-        <h2>Смена 13:00 - 20:00</h2>
+    <button class="schedule-btn" onclick="toggleSchedule('s2')">
+        📅 Смена 13:00 - 20:00
+    </button>
 
+    <div id="s2" class="schedule-content">
         <p>🍳 Breakfast — 08:00</p>
         <p>🥜 Snack — 11:00</p>
         <p>🍽️ Lunch — 13:00</p>
