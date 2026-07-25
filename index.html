@@ -1,520 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitness App - Summer Plan</title>
+<title>Queen Elizabeth II Collectible Coin</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial;
-    background:#0f0f0f;
-    color:white;
+background:#0b0b0b;
+color:#fff;
 }
 
-header{
-    padding:20px;
-    text-align:center;
-    background:#1c1c1c;
+.hero{
+background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('coin.jpg') center/cover;
+padding:100px 20px;
+text-align:center;
 }
 
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:15px;
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+color:gold;
 }
 
-.tabs{
-    display:flex;
-    overflow-x:auto;
-    gap:10px;
-    margin-bottom:15px;
+.hero p{
+font-size:22px;
+max-width:700px;
+margin:auto;
+line-height:1.6;
 }
 
-.tab{
-    padding:10px 15px;
-    background:#222;
-    border-radius:10px;
-    cursor:pointer;
-    white-space:nowrap;
+.price{
+margin:40px 0;
 }
 
-.tab.active{
-    background:white;
-    color:black;
+.old{
+text-decoration:line-through;
+font-size:32px;
+color:#999;
+}
+
+.new{
+font-size:60px;
+font-weight:bold;
+color:#FFD700;
+}
+
+.btn{
+display:inline-block;
+padding:18px 45px;
+background:gold;
+color:#000;
+font-size:22px;
+font-weight:bold;
+text-decoration:none;
+border-radius:50px;
+margin-top:25px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#fff;
+}
+
+.section{
+padding:70px 20px;
+max-width:1100px;
+margin:auto;
 }
 
 .card{
-    background:#1b1b1b;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:15px;
+background:#1a1a1a;
+padding:30px;
+border-radius:15px;
+margin:20px 0;
 }
 
-.exercise{
-    background:#222;
-    padding:10px;
-    margin:8px 0;
-    border-radius:10px;
+h2{
+color:gold;
+margin-bottom:20px;
 }
 
-.small{
-    opacity:0.7;
-    font-size:13px;
+ul{
+line-height:2;
+font-size:18px;
 }
 
-button{
-    padding:8px 12px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+.footer{
+background:#111;
+padding:40px;
+text-align:center;
+font-size:14px;
+color:#aaa;
 }
-
-input{
-    padding:8px;
-    border-radius:8px;
-    border:none;
-    width:120px;
-}
- .schedule-box{
-    margin-top:15px;
-}
-
-.schedule-btn{
-    width:100%;
-    background:#222;
-    color:white;
-    padding:12px;
-    margin:8px 0;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    text-align:left;
-}
-
-.schedule-content{
-    display:none;
-    background:#181818;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:10px;
-}   
 </style>
 </head>
 
 <body>
 
-<header>
-<h2>SUMMER TRANSFORMATION APP</h2>
-<p>173cm • 66.5kg • Goal: Lean Muscle</p>
-</header>
+<section class="hero">
 
-<div class="container">
+<h1>👑 Queen Elizabeth II Collectible Coin</h1>
+
+<p>
+Ексклузивна колекционерска монета посветена на кралицата Елизабета II.
+Совршен избор за колекционери и инвеститори кои бараат ретки и вредни изданија.
+</p>
+
+<div class="price">
+<div class="old">£89</div>
+<div class="new">£129</div>
+</div>
+
+<a href="#order" class="btn">Нарачај веднаш</a>
+
+</section>
+
+<section class="section">
 
 <div class="card">
-<h3>Progress Tracker</h3>
-<input id="weight" placeholder="kg">
-<button onclick="saveWeight()">Save</button>
-<p id="weightOut"></p>
-    <div class="schedule-box">
+<h2>Зошто оваа монета?</h2>
 
-    <button class="schedule-btn" onclick="toggleSchedule('s1')">
-        📅 Смена 09:00 - 17:00
-    </button>
-
-    <div id="s1" class="schedule-content">
-        <p>🍳 Breakfast — 09:00</p>
-        <p>🥜 Snack — 12:00</p>
-        <p>🍽️ Lunch — 15:00</p>
-        <p>🏋️ Pre-Workout — 17:30</p>
-        <p>💪 Post-Workout — 20:00</p>
-        <p>🌙 Dinner — 21:30</p>
-    </div>
-
-    <button class="schedule-btn" onclick="toggleSchedule('s2')">
-        📅 Смена 13:00 - 20:00
-    </button>
-
-    <div id="s2" class="schedule-content">
-        <p>🍳 Breakfast — 08:00</p>
-        <p>🥜 Snack — 11:00</p>
-        <p>🍽️ Lunch — 13:00</p>
-        <p>🥜 Snack — 17:00</p>
-        <p>🏋️ Pre-Workout — 20:30</p>
-        <p>💪 Post-Workout + Dinner — 22:00</p>
-    </div>
+<ul>
+<li>✔ Ограничено колекционерско издание</li>
+<li>✔ Симбол на британската историја</li>
+<li>✔ Висок интерес кај колекционерите</li>
+<li>✔ Одличен подарок за љубители на нумизматика</li>
+</ul>
 
 </div>
-
-
-<div class="tabs" id="tabs"></div>
-
-<div id="content"></div>
-    
-<div class="card">
-<h3>Lean Bulk Diet (Daily ~2800–3100 kcal)</h3>
-
-<div class="exercise">
-<b>Breakfast (08:00)</b><br>
-100g oats<br>
-300–500ml milk<br>
-1 banana<br>
-20–30g peanut butter
-</div>
-
-<div class="exercise">
-<b>Snack (11:00)</b><br>
-2–3 eggs<br>
-2 slices bread<br>
-or 1 yogurt + banana
-</div>
-
-<div class="exercise">
-<b>Lunch (14:00)</b><br>
-150g rice (raw)<br>
-200g chicken / thighs<br>
-vegetables<br>
-1 tbsp oil
-</div>
-
-<div class="exercise">
-<b>Pre Workout (18:00–20:30)</b><br>
-1 banana<br>
-30–50g peanuts<br>
-or yogurt + bread
-</div>
-
-<div class="exercise">
-<b>Post Workout Shake (22:15)</b><br>
-500ml milk<br>
-100g oats<br>
-1 banana<br>
-30g whey (optional)<br>
-20g peanut butter
-</div>
-
-<div class="exercise">
-<b>Dinner (23:00)</b><br>
-4 eggs<br>
-250–300g potatoes OR bread<br>
-or tuna + rice
-</div>
-
-<div class="exercise">
-<b>Before Sleep</b><br>
-300ml milk or yogurt
-</div>
-
-</div>
-<div class="card">
-<h3>Budget Diet (Daily ~2800 kcal)</h3>
-<div class="exercise">
-<b>Breakfast</b><br>
-100g oats + 300ml milk + 1 banana + 20g peanut butter
-</div>
-
-<div class="exercise">
-<b>Snack</b><br>
-2 eggs + 2 slices bread
-</div>
-
-<div class="exercise">
-<b>Lunch</b><br>
-150g rice + 200g chicken + vegetables
-</div>
-
-<div class="exercise">
-<b>Pre Workout</b><br>
-1 banana + yogurt
-</div>
-
-<div class="exercise">
-<b>Post Workout</b><br>
-200g potatoes + 150g chicken
-</div>
-
-<div class="exercise">
-<b>Dinner</b><br>
-3 eggs + bread OR tuna + rice
-</div>
-</div>
-
-</div>
-    <div class="card">
-<h3>🔥 Summer Lean Athlete Plan (Goal: Aesthetic V-Shape)</h3>
-
-<div class="exercise">
-<b>🎯 Goal (30 days)</b><br>
-+0.5 to +1.5kg lean muscle<br>
-Wider shoulders + back<br>
-Flat waist (no fat gain)<br>
-Athletic aesthetic look
-</div>
-
-<div class="exercise">
-<b>🍽️ Calories & Macros</b><br>
-Calories: 2500–2700 kcal<br>
-Protein: 120–140g<br>
-Carbs: moderate (for energy)<br>
-Fats: controlled (no bulk fat gain)
-</div>
-
-<div class="exercise">
-<b>🥣 Breakfast</b><br>
-80–100g oats<br>
-300–400ml milk<br>
-1 banana<br>
-10–15g peanut butter
-</div>
-
-<div class="exercise">
-<b>🥪 Snack</b><br>
-2 toasts<br>
-2 eggs OR 100g chicken<br>
-tomato / cucumber
-</div>
-
-<div class="exercise">
-<b>🍗 Lunch</b><br>
-120–150g rice (raw)<br>
-180–200g chicken<br>
-vegetables<br>
-1 tbsp oil
-</div>
-
-<div class="exercise">
-<b>🍌 Pre Workout</b><br>
-1 banana<br>
-1 toast OR 30g peanuts
-</div>
-
-<div class="exercise">
-<b>💪 Post Workout Shake</b><br>
-500ml milk<br>
-60–80g oats<br>
-1 banana<br>
-30g whey (optional)
-</div>
-
-<div class="exercise">
-<b>🍳 Dinner</b><br>
-3–4 eggs<br>
-200–250g potatoes OR bread<br>
-vegetables
-</div>
-
-<div class="exercise">
-<b>🌙 Before Sleep</b><br>
-yogurt or milk
-</div>
-
-</div>
-
 
 <div class="card">
-<h3>🏋️ Training Focus (Aesthetic Body)</h3>
+<h2>Пазарен потенцијал</h2>
 
-<div class="exercise">
-<b>Back (V Shape)</b><br>
-Pull Ups<br>
-Lat Pulldown<br>
-Barbell Row<br>
-Seated Row
-</div>
-
-<div class="exercise">
-<b>Shoulders (MOST IMPORTANT)</b><br>
-Shoulder Press<br>
-Lateral Raises (5x15)<br>
-Rear Delt Fly
-</div>
-
-<div class="exercise">
-<b>Chest</b><br>
-Bench Press<br>
-Incline Dumbbell Press<br>
-Dips
-</div>
-
-<div class="exercise">
-<b>Legs</b><br>
-Squat<br>
-Leg Press<br>
-RDL
-</div>
-
-<div class="exercise">
-<b>Core (3x weekly)</b><br>
-Hanging Leg Raises<br>
-Plank<br>
-Crunches
-</div>
+<p style="font-size:20px;line-height:1.8;">
+Историските и ограничени колекционерски монети често привлекуваат зголемен интерес со текот на времето. Некои колекционери сметаат дека ваквите примероци може значително да ја зголемат својата вредност, но идните цени не се гарантирани и зависат од состојбата на монетата, реткоста и побарувачката на пазарот.
+</p>
 
 </div>
 
+<div class="card" id="order">
 
-<div class="card">
-<h3>📊 Weekly Result Expectation</h3>
+<h2>Нарачај денес</h2>
 
-<div class="exercise">
-🏋️ 3x неделно: <br>
-🔥 Hanging leg raises<br>
-3–4 серии x 12–15<br>
-🔥 Cable crunch<br>
-3x15<br>
-🔥 Plank<br>
-3 x 1 минута<br>
-🔥 Russian twist<br>
-3x20<br>
-</div>
+<p style="font-size:22px;">
+Цена денес: <strong style="color:gold;">£129</strong>
+</p>
+
+<br>
+
+<a href="#" class="btn">Купи сега</a>
+
 </div>
 
-<script>
+</section>
 
-const plan = {
-Monday:{
-title:"Chest + Triceps",
-workout:[
-"Bench Press – 4x6-8",
-"Incline Dumbbell Press – 4x8-10",
-"Chest Fly – 3x12",
-"Dips – 3 sets",
-"Triceps Pushdown – 3x10"
-]
-},
-Tuesday:{
-title:"Back + Biceps",
-workout:[
-"Pull Ups – 4 sets",
-"Lat Pulldown – 4x10",
-"Barbell Row – 4x8",
-"Seated Row – 3x12",
-"Dumbbell Curl – 3x10"
-]
-},
-Wednesday:{
-title:"Legs",
-workout:[
-"Squat – 4x8",
-"Leg Press – 4x12",
-"Romanian Deadlift – 4x10",
-"Leg Curl – 3x12",
-"Calf Raises – 5x15"
-]
-},
-Thursday:{
-title:"Shoulders",
-workout:[
-"Overhead Press – 4x8",
-"Lateral Raises – 4x15",
-"Rear Delt Fly – 4x12",
-"Shrugs – 4x12"
-]
-},
-Friday:{
-title:"Upper Body",
-workout:[
-"Bench Press – 3x8",
-"Pull Ups – 3 sets",
-"Dumbbell Press – 3x10",
-"Row – 3x10",
-"Arms Superset – 3 rounds"
-]
-},
-Saturday:{
-title:"Abs + Cardio",
-workout:[
-"Crunches – 4x15",
-"Leg Raises – 4x15",
-"Plank – 3x1min",
-"15–20 min cardio"
-]
-},
-Sunday:{
-title:"Rest",
-workout:[
-"Rest day",
-"Light walk",
-"Stretching"
-]
-}
-};
-
-let current="Monday";
-
-function renderTabs(){
-let tabs=document.getElementById("tabs");
-tabs.innerHTML="";
-
-for(let day in plan){
-let div=document.createElement("div");
-div.className="tab"+(day===current?" active":"");
-div.innerText=day;
-div.onclick=()=>{current=day;render();};
-tabs.appendChild(div);
-}
-}
-
-function render(){
-renderTabs();
-
-let c=document.getElementById("content");
-c.innerHTML="";
-
-let data=plan[current];
-
-let html=`
-<div class="card">
-<h2>${current} - ${data.title}</h2>
-`;
-
-data.workout.forEach(ex=>{
-html+=`<div class="exercise">${ex}</div>`;
-});
-
-html+=`</div>`;
-
-c.innerHTML=html;
-}
-
-function saveWeight(){
-let w=document.getElementById("weight").value;
-localStorage.setItem("weight",w);
-document.getElementById("weightOut").innerText="Current: "+w+" kg";
-}
-
-function load(){
-let w=localStorage.getItem("weight");
-if(w){
-document.getElementById("weightOut").innerText="Current: "+w+" kg";
-}
-}
-function toggleSchedule(id){
-
-    const schedules =
-        document.querySelectorAll('.schedule-content');
-
-    schedules.forEach(schedule => {
-        if(schedule.id !== id){
-            schedule.style.display = "none";
-        }
-    });
-
-    const current =
-        document.getElementById(id);
-
-    if(current.style.display === "block"){
-        current.style.display = "none";
-    }else{
-        current.style.display = "block";
-    }
-}    
-
-render();
-load();
-
-</script>
+<div class="footer">
+© 2026 | Queen Elizabeth II Collectible Coin
+</div>
 
 </body>
 </html>
