@@ -1,117 +1,657 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PinkVibe — 18+</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--pink:#ff4fa3;--pink2:#d52b83}
-body{min-height:100vh;font-family:Arial,sans-serif;color:#fff;overflow-x:hidden;
-background:radial-gradient(circle at 70% 25%,rgba(255,190,225,.55),transparent 32%),
-radial-gradient(circle at 20% 80%,rgba(255,100,180,.35),transparent 35%),
-linear-gradient(135deg,#ff65ae,#d52b83 45%,#76134f)}
-.container{width:min(1120px,92%);margin:auto;position:relative;z-index:2}
-nav{height:80px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:23px;font-weight:900;letter-spacing:-1px} .logo span{color:#ffd5e9}
-.age{font-size:11px;font-weight:800;padding:9px 15px;border-radius:50px;background:#ffffff18;border:1px solid #ffffff40;backdrop-filter:blur(12px)}
-.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px}
-.hero-content{padding:40px 0}
-.badge{display:inline-flex;padding:9px 15px;border-radius:50px;background:#ffffff18;border:1px solid #ffffff33;backdrop-filter:blur(10px);font-size:11px;font-weight:700;margin-bottom:22px}
-h1{font-size:clamp(48px,7vw,78px);line-height:.93;letter-spacing:-5px;margin-bottom:25px}
-h1 span{color:#ffd0e7}
-.description{max-width:500px;color:#ffffffc7;font-size:16px;line-height:1.7;margin-bottom:30px}
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 32px;border-radius:50px;background:#fff;color:#9a175f;text-decoration:none;font-size:16px;font-weight:900;box-shadow:0 15px 40px #00000038;transition:.25s}
-.cta:hover{transform:translateY(-4px);box-shadow:0 20px 55px #0000004d}
-.activity{margin-top:18px;display:flex;align-items:center;gap:9px;font-size:13px;color:#ffffffb8}
-.online-dot{width:8px;height:8px;border-radius:50%;background:#74ffad;box-shadow:0 0 10px #74ffad;animation:pulse 1.5s infinite}
-@keyframes pulse{50%{opacity:.5;transform:scale(.75)}}
-#peopleCount{color:#fff;font-weight:900;transition:.2s}
-.change{font-weight:800;margin-left:3px} .plus{color:#7dffae} .minus{color:#ffd1e1}
-.character-section{height:590px;display:flex;align-items:center;justify-content:center;position:relative}
-.character-glow{position:absolute;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(255,220,240,.45),rgba(255,130,190,.1),transparent 70%);filter:blur(15px)}
-.img{position:relative;width:min(430px,90%);max-height:560px;object-fit:contain;z-index:3;filter:drop-shadow(0 25px 35px rgba(60,0,35,.35));animation:girlFloat 3s ease-in-out infinite}
-@keyframes girlFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-13px) rotate(1deg)}}
-.heart{position:absolute;font-size:25px;opacity:.7;z-index:4;animation:floatHeart 4s ease-in-out infinite}
-.heart.one{left:5%;top:25%} .heart.two{right:5%;top:20%;animation-delay:1s} .heart.three{left:12%;bottom:18%;animation-delay:2s}
-@keyframes floatHeart{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-25px) rotate(8deg)}}
-.reviews{padding:40px 0 80px}
-.section-header{text-align:center;margin-bottom:30px}
-.section-header h2{font-size:30px;margin-bottom:8px} .section-header p{color:#ffffff99;font-size:12px}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.review{padding:22px;border-radius:20px;background:#ffffff14;border:1px solid #ffffff24;backdrop-filter:blur(15px)}
-.stars{color:#ffd45c;letter-spacing:2px;margin-bottom:12px}
-.review-text{color:#ffffffc7;font-size:13px;line-height:1.6;margin-bottom:15px}
-.username{font-size:12px;font-weight:800}
-.demo{text-align:center;margin-top:18px;font-size:10px;color:#ffffff66}
-footer{text-align:center;padding:25px;font-size:10px;color:#ffffff66}
-@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:20px}.description{margin-left:auto;margin-right:auto}.activity{justify-content:center}.character-section{height:500px;margin-top:-30px}.img{width:360px}.review-grid{grid-template-columns:1fr}h1{letter-spacing:-3px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRONCLAD // Elite Training & Nutrition</title>
+    <style>
+        :root {
+            --card-bg: rgba(11, 15, 25, 0.48);
+            --card-border: rgba(56, 189, 248, 0.25);
+            --accent-blue: #38bdf8;
+            --accent-gold: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(rgba(5, 8, 15, 0.78), rgba(10, 15, 25, 0.85)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            text-shadow: 0 3px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        header p {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+        }
+
+        h2.section-title {
+            color: var(--accent-blue);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
+        }
+
+        /* ACCORDION WORKOUT STYLES */
+        .accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.2s;
+        }
+
+        .accordion-item:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        .accordion-header {
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: rgba(3, 105, 161, 0.15);
+            user-select: none;
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .accordion-header h3 span {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+
+        .accordion-arrow {
+            color: var(--accent-blue);
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-in-out, padding 0.35s ease;
+            padding: 0 22px;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 18px 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* EXERCISE CHECKLIST ITEMS */
+        .exercise-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .exercise-item:last-child {
+            border-bottom: none;
+        }
+
+        .exercise-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #e2e8f0;
+            width: 100%;
+        }
+
+        .exercise-label input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-blue);
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.6);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .exercise-label input[type="checkbox"]:checked {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .exercise-label input[type="checkbox"]:checked::after {
+            content: '✔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0f172a;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .exercise-label input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .rest-day-text {
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        /* BOTTOM SECTION (Moved from top) */
+        .bottom-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.85) 0%, rgba(3, 105, 161, 0.85) 100%);
+            backdrop-filter: blur(8px);
+            color: white;
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, rgba(3, 105, 161, 0.95) 0%, rgba(2, 132, 199, 0.95) 100%);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+        }
+
+        .info-box {
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.4);
+            color: #cbd5e1;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .info-box strong {
+            color: var(--accent-gold);
+        }
+
+        /* MARKET LIST STYLES */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .market-category {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .market-category h4 {
+            color: var(--accent-blue);
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .market-category ul {
+            margin: 0;
+            padding-left: 18px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .market-category li {
+            margin-bottom: 6px;
+        }
+
+        /* MODALS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 8, 15, 0.85);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 550px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            color: var(--text-muted);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-blue);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 12px;
+            color: var(--accent-blue);
+            font-size: 1.3rem;
+        }
+
+        .modal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .modal-table th, .modal-table td {
+            padding: 12px 14px;
+            font-size: 14px;
+            background-color: rgba(15, 23, 42, 0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            text-align: left;
+        }
+
+        .modal-table th {
+            color: var(--accent-blue);
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<nav><div class="logo">Pink<span>Vibe</span></div><div class="age">18+ ONLY</div></nav>
 
-<section class="hero">
-<div class="hero-content">
-<div class="badge">✦ WELCOME TO THE PINK SIDE</div>
-<h1>Ready for<br><span>something fun?</span></h1>
-<p class="description">Step into a completely different vibe. Everything is just one click away.</p>
+    <div class="container">
+        <header>
+            <h1>Ironclad Training</h1>
+            <p>Discipline // Execution // Results</p>
+        </header>
 
-<!-- CHANGE THIS URL -->
-<a href="YOUR-LINK-HERE" class="cta" id="joinButton">Enter Now <span>→</span></a>
+        <h2 class="section-title">Weekly Hypertrophy Matrix</h2>
+        
+        <div class="accordion-container">
+            <!-- MONDAY -->
+            <div class="accordion-item" id="day-monday">
+                <div class="accordion-header" onclick="toggleAccordion('day-monday')">
+                    <h3>Monday <span>Back & Biceps</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Pull-ups / Lat Pulldown (3 sets x 8-10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Seated Cable Row (3 sets x 10-12 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Barbell Bicep Curls (3 sets x 10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Hanging Leg Raises (3 sets x 12 reps)</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<div class="activity">
-<span class="online-dot"></span>
-<span><span id="peopleCount">1,284</span> active right now</span>
-<span id="change" class="change plus">+3</span>
-</div>
-</div>
+            <!-- TUESDAY -->
+            <div class="accordion-item" id="day-tuesday">
+                <div class="accordion-header" onclick="toggleAccordion('day-tuesday')">
+                    <h3>Tuesday <span>Chest & Triceps</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Incline Dumbbell Press (3 sets x 8-10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Flat Bench Press (3 sets x 8-10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Cable Flyes (3 sets x 12 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Triceps Pushdowns (3 sets x 12 reps)</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<div class="character-section">
-<div class="character-glow"></div>
-<div class="heart one">♡</div><div class="heart two">♡</div><div class="heart three">♡</div>
+            <!-- WEDNESDAY -->
+            <div class="accordion-item" id="day-wednesday">
+                <div class="accordion-header" onclick="toggleAccordion('day-wednesday')">
+                    <h3>Wednesday <span>Active Recovery</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Incline Treadmill Walk (30 minutes)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Core Mobility & Deep Stretching</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- Your uploaded anime image is embedded directly into this HTML -->
-<img src="ggg-removebg-preview.png"></div>
-</section>
+            <!-- THURSDAY -->
+            <div class="accordion-item" id="day-thursday">
+                <div class="accordion-header" onclick="toggleAccordion('day-thursday')">
+                    <h3>Thursday <span>Shoulders & Abs</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Dumbbell Shoulder Press (3 sets x 8-10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Lateral Raises (4 sets x 12-15 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Face Pulls (3 sets x 15 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Plank (3 sets x 60 seconds)</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<section class="reviews">
-<div class="section-header">
-<h2>People are talking</h2>
-<p>Sample testimonials — replace these with genuine reviews.</p>
-</div>
-<div class="review-grid">
-<div class="review"><div class="stars">★★★★★</div><div class="review-text">"The design immediately caught my attention. Really smooth experience."</div><div class="username">@alex</div></div>
-<div class="review"><div class="stars">★★★★★</div><div class="review-text">"Super clean and easy to use. Took me literally a few seconds."</div><div class="username">@mike</div></div>
-<div class="review"><div class="stars">★★★★★</div><div class="review-text">"Love the pink aesthetic. Looks especially good on mobile."</div><div class="username">@josh</div></div>
-</div>
-<div class="demo">Demo testimonials — use real reviews on your live site.</div>
-</section>
+            <!-- FRIDAY -->
+            <div class="accordion-item" id="day-friday">
+                <div class="accordion-header" onclick="toggleAccordion('day-friday')">
+                    <h3>Friday <span>Full Body Power</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Barbell Squats (3 sets x 10 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Chin-ups (3 sets x max reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Push-ups (3 sets x 15 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Bicycle Crunches (3 sets x 20 reps)</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<footer>© 2026 PinkVibe · 18+ · Please enjoy responsibly</footer>
-</div>
+            <!-- SATURDAY -->
+            <div class="accordion-item" id="day-saturday">
+                <div class="accordion-header" onclick="toggleAccordion('day-saturday')">
+                    <h3>Saturday <span>HIIT & Conditioning</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Battle Ropes / Sled Work (4 rounds)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Leg Raises (3 sets x 12 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Russian Twists (3 sets x 20 reps)</span></label></li>
+                        <li class="exercise-item"><label class="exercise-label"><input type="checkbox"><span>Heavy Farmer's Walks (3 sets)</span></label></li>
+                    </ul>
+                </div>
+            </div>
 
-<script>
-let people=1284;
-const count=document.getElementById("peopleCount");
-const change=document.getElementById("change");
+            <!-- SUNDAY -->
+            <div class="accordion-item" id="day-sunday">
+                <div class="accordion-header" onclick="toggleAccordion('day-sunday')">
+                    <h3>Sunday <span>Complete Rest</span></h3>
+                    <span class="accordion-arrow">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <p class="rest-day-text">Zero stress, optimal hydration (3L+ water), complete muscular recovery.</p>
+                </div>
+            </div>
+        </div>
 
-function activity(){
-    let direction=Math.random()<.65?1:-1;
-    let amount=Math.floor(Math.random()*7)+1;
-    if(people<=1000) direction=1;
-    people+=direction*amount;
-    count.textContent=people.toLocaleString();
-    change.textContent=(direction>0?"+":"-")+amount;
-    change.className="change "+(direction>0?"plus":"minus");
-    count.style.transform="scale(1.15)";
-    setTimeout(()=>count.style.transform="scale(1)",180);
-}
-function schedule(){
-    setTimeout(()=>{activity();schedule()},Math.floor(Math.random()*4000)+3000);
-}
-schedule();
-</script>
+        <!-- BOTTOM SECTION: NUTRITION, RULES & BUDGET SHOPPING -->
+        <div class="bottom-section">
+            <h2 class="section-title" style="font-size: 1.1rem; margin-top:0;">Nutrition & Protocols</h2>
+            
+            <div class="btn-group">
+                <button onclick="openModal('mealModal1')">Shift Plan: 9 AM – 5 PM</button>
+                <button onclick="openModal('mealModal2')">Shift Plan: 1 PM – 8 PM</button>
+            </div>
+
+            <div class="info-box">
+                <strong>Protocol Rule:</strong> Rest <strong>60 to 90 seconds</strong> between standard hypertrophy sets. Rest <strong>2 minutes</strong> on heavy compound lifts. Closing any day's menu resets your checklist automatically.
+            </div>
+
+            <h2 class="section-title" style="font-size: 1.1rem;">Affordable Weekly Market List (Budget-Friendly)</h2>
+            <p style="color: var(--text-muted); font-size: 13px; margin-top: -8px;">High protein & complex carbs engineered for a 67kg frame without breaking the bank.</p>
+
+            <div class="market-grid">
+                <div class="market-category">
+                    <h4>Proteins</h4>
+                    <ul>
+                        <li>Eggs (2x 15-packs)</li>
+                        <li>Chicken Breast (1.5 kg)</li>
+                        <li>Canned Tuna or Mackerel (4 cans)</li>
+                        <li>Low-fat Greek Yogurt / Curd (1 kg)</li>
+                    </ul>
+                </div>
+                <div class="market-category">
+                    <h4>Carbs & Energy</h4>
+                    <ul>
+                        <li>Rolled Oats (1 large bag)</li>
+                        <li>White or Brown Rice (1 kg)</li>
+                        <li>Whole-Wheat Bread (1 loaf)</li>
+                        <li>Sweet Potatoes or Potatoes (2 kg)</li>
+                    </ul>
+                </div>
+                <div class="market-category">
+                    <h4>Fats, Veg & Extras</h4>
+                    <ul>
+                        <li>Bananas & Seasonal Fruit (1 bunch)</li>
+                        <li>Frozen Broccoli or Spinach (2 bags)</li>
+                        <li>Peanut Butter (1 jar)</li>
+                        <li>Cooking Oil / Olive Oil & Oats toppings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEAL PLAN MODAL 1 -->
+    <div id="mealModal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('mealModal1')">&times;</span>
+            <h2>Shift Plan: 9:00 AM – 5:00 PM</h2>
+            <table class="modal-table">
+                <tr>
+                    <th>Meal</th>
+                    <th>Nutrition Breakdown & Supplements</th>
+                    <th>Timing</th>
+                </tr>
+                <tr>
+                    <td><strong>Breakfast</strong></td>
+                    <td>3 whole eggs + 2 whites, 1 slice whole-wheat toast, half avocado.<br><em>+ 5g Creatine Monohydrate.</em></td>
+                    <td>8:00 AM</td>
+                </tr>
+                <tr>
+                    <td><strong>Mid-Morning</strong></td>
+                    <td>1 scoop whey protein or Greek yogurt + 1 piece of fruit.</td>
+                    <td>11:30 AM</td>
+                </tr>
+                <tr>
+                    <td><strong>Lunch</strong></td>
+                    <td>150g grilled chicken breast, 1 cup rice/quinoa, green salad with olive oil.</td>
+                    <td>2:00 PM</td>
+                </tr>
+                <tr>
+                    <td><strong>Pre-Workout</strong></td>
+                    <td>Handful of almonds + rice cake with natural peanut butter.</td>
+                    <td>5:30 PM</td>
+                </tr>
+                <tr>
+                    <td><strong>Dinner</strong></td>
+                    <td>150g baked fish or lean beef, steamed broccoli/spinach, sweet potato.</td>
+                    <td>8:30 PM</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- MEAL PLAN MODAL 2 -->
+    <div id="mealModal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('mealModal2')">&times;</span>
+            <h2>Shift Plan: 1:00 PM – 8:00 PM</h2>
+            <table class="modal-table">
+                <tr>
+                    <th>Meal</th>
+                    <th>Nutrition Breakdown & Supplements</th>
+                    <th>Timing</th>
+                </tr>
+                <tr>
+                    <td><strong>Brunch</strong></td>
+                    <td>50g oats with water/milk, 1 scoop protein, berries, peanut butter.<br><em>+ 5g Creatine Monohydrate.</em></td>
+                    <td>10:30 AM</td>
+                </tr>
+                <tr>
+                    <td><strong>Pre-Work</strong></td>
+                    <td>2-egg omelet with cheese or turkey ham, small portion of rice or fruit.</td>
+                    <td>12:00 PM</td>
+                </tr>
+                <tr>
+                    <td><strong>Work Shift</strong></td>
+                    <td>150g turkey whole-wheat wrap, lettuce, tomato, yogurt sauce, almonds.</td>
+                    <td>4:30 PM</td>
+                </tr>
+                <tr>
+                    <td><strong>Post-Work</strong></td>
+                    <td>150g grilled meat/chicken, zucchini/broccoli, medium baked potato.</td>
+                    <td>9:00 PM</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Accordion functionality with automatic reset on close
+        function toggleAccordion(dayId) {
+            const item = document.getElementById(dayId);
+            const isActive = item.classList.contains('active');
+
+            // Find any currently open items and reset their checkboxes as they close
+            document.querySelectorAll('.accordion-item.active').forEach(openAcc => {
+                openAcc.classList.remove('active');
+                setTimeout(() => {
+                    openAcc.querySelectorAll('input[type="checkbox"]').forEach(chk => {
+                        chk.checked = false;
+                    });
+                }, 300);
+            });
+
+            // If the clicked item wasn't already active, open it up
+            if (!isActive) {
+                item.classList.add('active');
+                setTimeout(() => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 200);
+            }
+        }
+
+        // Modal Controls
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
